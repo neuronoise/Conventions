@@ -50,3 +50,5 @@ void somethingHappening(std::vector<int> & inputVector)
 - ```protected```
 - ```private slots```
 - ```private```
+
+[< вернуться к списку разделов](README.md#Разделы)
