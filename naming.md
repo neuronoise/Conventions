@@ -70,3 +70,5 @@ struct SizeOfRect
     int width;
 }
 ```
+
+[< вернуться к общему списку](README.md)
