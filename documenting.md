@@ -226,3 +226,5 @@ private:
     void drawLabels(QPainter *painter) const;
 }; 
 ```
+
+[< вернуться к списку разделов](README.md#Разделы)
