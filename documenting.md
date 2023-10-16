@@ -57,9 +57,9 @@ int variable; ///< Краткое описание
 ```
 /// Набор возможных состояний объекта
 enum States {
-         Disabled, ///< Указывает, что элемент недоступен для использования
-         Undefined, ///< Указывает, что состояние элемента неопределенно
-         Enabled, ///< Указывает, что элемент доступен для использования
+         Undefined, ///< Элемент не определен
+         Disabled,  ///< Элемент недоступен для использования
+         Enabled,   ///< Элемент доступен для использования
 }
 ```
 
@@ -167,7 +167,7 @@ Doxygen поддерживает язык разметки [Markdown](https://ww
 /**
  * @brief Временная шкала.
  * 
- * Класс, реализующий создание временной шкалы и управление ей.
+ * Класс, реализующий создание временной шкалы, отрисовку и управление ей.
  */
 class Timeline : public Item
 {
@@ -195,22 +195,19 @@ public:
      * шкале.
      */
     double position(int time) const;
-    /// Запрос ширины временной шкалы.
+
     int width() const;
-    /// Запрос высоты временной шкалы.
     int height() const;
 
     // Item interface funtion
     void setVPosition(const double &){}
-    /// Задать геометрические размеры шкалы
+    /// Задать геометрические размеры
     void setSize(const QSize &size);
 
-    /// Задать цвет фона
-    static void setBgColor(const QColor &bgColor);
+    static void setBackgroundColor(const QColor &bgColor);
+    static void setTextColor(const QColor &textColor);
     /// Задать цвет шкалы пройденного времени
     static void setDoneColor(const QColor &doneColor);
-    /// Задать цвет текста
-    static void setTextColor(const QColor &textColor);
 
 private:
     static QColor m_bgColor;    ///< Цвет фона.
@@ -222,7 +219,7 @@ private:
     int m_total;                ///< Общая продолжительность выставки, сек.
     QSize m_size;               ///< Размер временной шкалы.
 
-    void drawBg(QPainter *painter) const;
+    void drawBackground(QPainter *painter) const;
     void drawFrame(QPainter *painter) const;
     void drawNow(QPainter *painter) const;
     void drawLabels(QPainter *painter) const;
